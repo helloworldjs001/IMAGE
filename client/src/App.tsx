@@ -82,7 +82,7 @@ const AllImages = () => {
 
   const getAllImages = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/images");
+      const response = await axios.get("https://image-yi4u.onrender.com/api/images");
       setImages(response.data.images);
 
     } catch (error) {
@@ -249,7 +249,7 @@ const Modal = ({ _id, closeModal, scale }) => {
 
     try {
 
-      const response = await axios.delete(`http://localhost:5000/api/images/${_id}`)
+      const response = await axios.delete(`https://image-yi4u.onrender.com/api/images/${_id}`)
 
 
       console.log(response.data);
@@ -276,7 +276,7 @@ const Modal = ({ _id, closeModal, scale }) => {
         title
       }
 
-      const response = await axios.put(`http://localhost:5000/api/images/${_id}`, payload)
+      const response = await axios.put(`https://image-yi4u.onrender.com/api/images/${_id}`, payload)
 
 
       console.log(response.data);
@@ -384,7 +384,7 @@ const ImageUploader: React.FC = () => {
       formData.append('image', file);
       formData.append('title', title);
 
-      const response = await axios.post('http://localhost:5000/api/images', formData, {
+      const response = await axios.post('https://image-yi4u.onrender.com/api/images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
