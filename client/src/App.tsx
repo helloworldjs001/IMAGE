@@ -26,7 +26,7 @@ export default App
 
 const Layout = () => {
   return (
-    <div className="relative h-screen flex">
+    <div className="relative h-screen overflow-hidden flex">
       <LeftNavbar />
       <Outlet />
     </div>
@@ -138,8 +138,8 @@ const AllImages = () => {
   };
 
   return (
-    <div className="flex absolute w-[calc(100vw_-_4rem)] right-0 top-4">
-      <div className="flex flex-wrap overflow-y-scroll gap-6">
+    <div className="flex   absolute w-[calc(100vw_-_4rem)] px-4 top-4 right-0">
+      <div className="flex h-[98vh]  flex-wrap overflow-y-scroll gap-[4rem]">
         {Images &&
           Images.map((data, key) => {
             return <ImageCard data={data} key={key} onClick={(e) => handleImageClick(e, data._id)} />;
@@ -148,7 +148,8 @@ const AllImages = () => {
           NO IMAGES
         </>}
       </div>
-      <Modal _id={selectedImageId} closeModal={closeModal} scale={getModalScale()} />
+
+      {selectedImageId && <Modal _id={selectedImageId} closeModal={closeModal} scale={getModalScale()} />}
     </div>
   );
 };
@@ -193,14 +194,14 @@ const ImageCard = ({ data, onClick }) => {
       onClick={toggleFullscreen}
 
 
-      className="w-[30rem]  relative hover:cursor-pointer" >
+      className="w-[25rem] h-fit relative hover:cursor-pointer" >
 
 
 
 
       {hovered && <div className="  flex justify-between  items-start
-       absolute  w-[30rem] " >
-        <div className="bg-white h-12  shadow-lg rounded-lg flex items-center justify-between w-[100%] px-2">
+       absolute  w-[25rem] " >
+        <div className="bg-white h-12  shadow-lg rounded-lg flex items-center justify-between w-[100%] transition-colors px-2 hover:bg-slate-400">
 
 
           <button className="text-sm max-w-32 overflow-hidden">
@@ -302,7 +303,7 @@ const Modal = ({ _id, closeModal, scale }) => {
 
   return (
     <div className={`fixed inset-0 flex items-center justify-center transition-all duration-150 bg-black bg-opacity-75 transform scale-${scale}`}>
-      <div className="bg-gray-400 bg-opacity-25 w-[500px] h-80 rounded-lg p-8 flex justify-between items-center text-white relative">
+      <div className="bg-white bg-opacity-85 w-[500px] h-80 rounded-lg p-8 flex justify-between items-center text-white relative">
         <div className="absolute top-4 h-8 w-8 flex justify-center items-center rounded-2xl cursor-pointer bg-black right-4" onClick={() => { closeModal("fail") }}>X</div>
         {_id && !update &&
           <>
