@@ -12,9 +12,8 @@ const App = () => {
       <Router >
         <Routes>
           <Route path="/" element={<Layout />} >
-
+            <Route path="/" element={<AllImages />} />
             <Route path="/upload" element={<ImageUploader />} />
-            <Route path="/allImages" element={<AllImages />} />
           </Route>
         </Routes>
       </Router>
@@ -58,9 +57,9 @@ const LeftNavbar = () => {
       </div>
       <div
         onClick={() => {
-          navigate("/allImages");
+          navigate("/");
         }}
-        className={`flex h-24 items-center justify-center duration-150 overflow-hidden relative hover:bg-red-200 cursor-pointer ${location.pathname === "/allImages" ? "bg-red-200" : ""
+        className={`flex h-24 items-center justify-center duration-150 overflow-hidden relative hover:bg-red-200 cursor-pointer ${location.pathname === "/" ? "bg-red-200" : ""
           }`}
       >
         <span className="absolute left-2 text-3xl">
@@ -394,7 +393,7 @@ const ImageUploader: React.FC = () => {
       setFile(null); // Clear the file after successful upload
       setTitle(""); // Clear the title after successful upload
       setKey(prevKey => prevKey + 1); // Reset the key of file input to clear its value
-      navigate("/allImages")
+      navigate("/")
       setisLoading(false)
 
 
