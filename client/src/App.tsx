@@ -82,7 +82,7 @@ const AllImages = () => {
 
   const getAllImages = async () => {
     try {
-      const response = await axios.get("https://vercel-node-mongo-9t28cxiee-adams-projects-6b7bca41.vercel.app/api/images");
+      const response = await axios.get("https://vercel-node-mongo-ochre.vercel.app/api/images");
       setImages(response.data.images);
 
     } catch (error) {
@@ -249,7 +249,7 @@ const Modal = ({ _id, closeModal, scale }) => {
 
     try {
 
-      const response = await axios.delete(`https://vercel-node-mongo-9t28cxiee-adams-projects-6b7bca41.vercel.app/api/images/${_id}`)
+      const response = await axios.delete(`https://vercel-node-mongo-ochre.vercel.app/api/images/${_id}`)
 
 
       console.log(response.data);
@@ -276,7 +276,7 @@ const Modal = ({ _id, closeModal, scale }) => {
         title
       }
 
-      const response = await axios.put(`https://vercel-node-mongo-9t28cxiee-adams-projects-6b7bca41.vercel.app/api/images/${_id}`, payload)
+      const response = await axios.put(`https://vercel-node-mongo-ochre.vercel.app/api/images/${_id}`, payload)
 
 
       console.log(response.data);
@@ -384,7 +384,7 @@ const ImageUploader: React.FC = () => {
       formData.append('image', file);
       formData.append('title', title);
 
-      const response = await axios.post('https://vercel-node-mongo-9t28cxiee-adams-projects-6b7bca41.vercel.app/api/images', formData, {
+      const response = await axios.post('https://vercel-node-mongo-ochre.vercel.app/api/images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
